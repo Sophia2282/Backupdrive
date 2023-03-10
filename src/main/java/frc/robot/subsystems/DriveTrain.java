@@ -1,6 +1,3 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
 
@@ -23,16 +20,19 @@ public class DriveTrain extends SubsystemBase {
 
   MotorControllerGroup leftMotors = new MotorControllerGroup(leftA, leftB);
   MotorControllerGroup rightMotors = new MotorControllerGroup(rightA, rightB);
-  public DifferentialDrive diffDrive = new DifferentialDrive(leftMotors, rightMotors);
+  DifferentialDrive m_Drive = new DifferentialDrive(leftMotors, rightMotors);
 
   public DriveTrain() {
-    diffDrive.setMaxOutput(0.67);
-
+    m_Drive.setMaxOutput(0.67);
+    rightMotors.setInverted(true);
   }
 
-  public void tankDrive(double moveSpeed, double rotateSpeed) {
-    diffDrive.tankDrive(moveSpeed, rotateSpeed);
+  public void tankDrive(double leftSpeed, double rightSpeed) {
+    m_Drive.tankDrive(leftSpeed, rightSpeed);
   }
+
+  // public void TankDrive(double, double) {
+  // diffDrive.TankDrive(double, double);
 
   @Override
   public void periodic() {
