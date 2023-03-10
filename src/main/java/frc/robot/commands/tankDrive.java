@@ -13,7 +13,25 @@ public class tankDrive extends CommandBase {
 
   /** Creates a new ArcadeDrive. */
   public tankDrive() {
-    addRequirements(RobotContainer.DriveTrain);
+    addRequirements(DriveTrain);
+  }
+
+  package frc.robot.commands;
+
+import frc.robot.subsystems.DriveTrain;
+import frc.robot.Constants;
+import frc.robot.Robot;
+
+import frc.robot.RobotContainer;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Subsystem;
+
+public class tankDrive extends CommandBase {
+
+  /** Creates a new ArcadeDrive. */
+  public tankDrive() {
+    addRequirements(DriveTrain);
   }
 
   // Called when the command is initially scheduled.
@@ -36,7 +54,7 @@ public class tankDrive extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    diffDrive.set(0, 0);
+
   }
 
   // Returns true when the command should end.
@@ -45,4 +63,3 @@ public class tankDrive extends CommandBase {
     return false;
   }
 }
-
