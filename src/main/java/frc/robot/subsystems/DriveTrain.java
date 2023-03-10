@@ -1,3 +1,6 @@
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
 
@@ -9,6 +12,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.commands.tankDrive;
 //import frc.robot.RobotContainer;
 import frc.robot.Constants;
 
@@ -20,15 +24,15 @@ public class DriveTrain extends SubsystemBase {
 
   MotorControllerGroup leftMotors = new MotorControllerGroup(leftA, leftB);
   MotorControllerGroup rightMotors = new MotorControllerGroup(rightA, rightB);
-  DifferentialDrive m_Drive = new DifferentialDrive(leftMotors, rightMotors);
+  DifferentialDrive m_drive = new DifferentialDrive(leftMotors, rightMotors);
 
   public DriveTrain() {
-    m_Drive.setMaxOutput(0.67);
+    m_drive.setMaxOutput(0.67);
     rightMotors.setInverted(true);
   }
 
-  public void tankDrive(double leftSpeed, double rightSpeed) {
-    m_Drive.tankDrive(leftSpeed, rightSpeed);
+  public void tankDrive(double forward, double turn) {
+    m_drive.tankDrive(forward, turn);
   }
 
   // public void TankDrive(double, double) {
